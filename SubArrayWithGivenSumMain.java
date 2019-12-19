@@ -1,3 +1,5 @@
+package com.github.swapnil.ingle.java.practice;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -37,40 +39,36 @@ public class SubArrayWithGivenSumMain {
 	}
 
 	private class TestCase {
-		private Integer[] array;
+		private Integer[] arr;
 
 		private Integer sum;
 
-		private Integer arrayLen;
+		private Integer arrLen;
 
-		public TestCase(Integer arrayLen, Integer sum) {
-			this.arrayLen = arrayLen;
+		public TestCase(Integer arrLen, Integer sum) {
+			this.arrLen = arrLen;
 			this.sum = sum;
-			this.array = new Integer[arrayLen];
+			this.arr = new Integer[arrLen];
 		}
 
 		public void initArray(String elements) {
-			this.array = Stream.of(elements.split(" ")).map(Integer::valueOf).collect(Collectors.toList())
+			this.arr = Stream.of(elements.split(" ")).map(Integer::valueOf).collect(Collectors.toList())
 					.toArray(new Integer[0]);
 		}
 
 		public String findFirstOccurenceOfSubArray() {
-			for (int startIdx=0; startIdx<arrayLen; startIdx++) {
-				for (int endIdx = arrayLen-1; endIdx>startIdx; endIdx--) {
-					int cursor = startIdx;
-					int sum = 0;
+			int header = 0, wsum = 0;
 
-					while (cursor <= endIdx) {
-						sum += array[cursor];
-						if (sum == this.sum) {
-							return String.format("%d %d", startIdx + 1, cursor + 1);
-						}
-						cursor++;
-					}
-					
-					if (sum < this.sum) {
-						break;
-					}
+			for (int i = 0; i<arrLen; i++) {
+				wsum += arr[i];
+
+				while (wsum > this.sum) {
+					wsum -= arr[header];
+					header++;
+				}
+
+				if (wsum == sum) {
+					return String.format("%d %d", header + 1, i + 1);
 				}
 			}
 
