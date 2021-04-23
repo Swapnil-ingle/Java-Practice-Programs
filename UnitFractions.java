@@ -14,7 +14,7 @@ public class UnitFractions {
 	 * 
 	 * Enumerate all sets of 4 possible unit-fractions which add up to 1.
 	 * 
-	 * 1 = (1/a) + (1/b) + (1/c) + (1/d); Find all sets of (a,b,c,d) Given that,
+	 * 1 = (1/a) + (1/b) + (1/c) + (1/d); Find all sets of (a, b, c, d) Given that,
 	 * (a,b,c,d) are positive integers and (a <= b <= c <= d)
 	 * 
 	 * @param a      Initial value 1
@@ -29,7 +29,7 @@ public class UnitFractions {
 		if (a > 20 || b > 20 || c > 20 || d > 20) {
 			// Arbitrary upper-bound on the parameters or they will
 			// infinitely increment.
-			// Reason: Once a becomes > 20 the fractions is so small that the
+			// Reason: Once d becomes > 20 the fractions is so small that the
 			// four unit fractions will never add up to 1, given the init condition
 			// (a <= b <= c <= d).
 			return 0;
