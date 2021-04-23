@@ -29,7 +29,7 @@ public class UnitFractions {
 		if (a > 20 || b > 20 || c > 20 || d > 20) {
 			// Arbitrary upper-bound on the parameters or they will
 			// infinitely increment.
-			// Reason: Once d becomes > 20 the fractions is so small that the
+			// Reason: Once 'a' becomes > 20 the fractions is so small that the
 			// four unit fractions will never add up to 1, given the init condition
 			// (a <= b <= c <= d).
 			return 0;
