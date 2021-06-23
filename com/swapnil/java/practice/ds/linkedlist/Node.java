@@ -24,4 +24,28 @@ public class Node {
 	public void setNext(Node next) {
 		this.next = next;
 	}
+
+	public static class LinkedListUtils {
+		public static void printLL(Node head) {
+			Node node = head;
+			while (node != null) {
+				System.out.print("[" + node.getData() + "] => ");
+				node = node.getNext();
+			}
+			System.out.println("[X]");
+		}
+
+		public static Node generateLL(int[] elements) {
+			Node head = new Node(elements[0]);
+			Node prevNode = head;
+
+			for (int i = 1; i < elements.length; i++) {
+				Node node = new Node(elements[i]);
+				prevNode.setNext(node);
+				prevNode = node;
+			}
+
+			return head;
+		}
+	}
 }
