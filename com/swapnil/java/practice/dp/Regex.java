@@ -2,7 +2,7 @@ package com.swapnil.java.practice.dp;
 
 public class Regex {
     public static void main(String[] args) {
-        System.out.println(iterativeRegex("bacb", "b*c*?*"));
+        System.out.println(iterativeRegex("baacb", "b*c*?*"));
         System.out.println(iterativeRegex("aaa", "*a"));
         System.out.println(iterativeRegex("aaa", "*"));
         System.out.println(iterativeRegex("aa", "*b"));
